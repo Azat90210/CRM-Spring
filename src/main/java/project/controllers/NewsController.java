@@ -20,15 +20,15 @@ public class NewsController {
     }
 
 
-//    @GetMapping("news-controller")
-//    private String index(Model model) {
-//        model.addAttribute("news", newsDAO.index());
-//        return "news/index";
-//    }
-//
-//    @GetMapping("/{id}")
-//    public String show(@PathVariable("id") int id, Model model) {
-//        model.addAttribute("news", newsDAO.show(id));
-//        return "news/show";
-//    }
+    @GetMapping("news-controller")
+    private String index(Model model) {
+        model.addAttribute("news", newsDAO.index());
+        return "news/index";
+    }
+
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") int id, Model model) {
+        model.addAttribute("news", newsDAO.show(id));
+        return "news/show";
+    }
 }
