@@ -1,6 +1,12 @@
 package project.config;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
+import java.util.EnumSet;
 
 public class MySpringMVCDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
@@ -14,5 +20,19 @@ public class MySpringMVCDispatcherServletInitializer extends AbstractAnnotationC
     protected String[] getServletMappings() {
         return new String[] {"/"};
     }
+    }
+
+    public void onStartup (ServletContext aServletContext) throws ServletContext {
+    registerCharacterEncodingFilter(aServletContext);
+    }
+
+    private void registerCharacterEncodingFilter(ServletContext aContext){
+        EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD);
+
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        FilterRegistration.Dynamic characterEncoding  = aContext.addFilter("characterEncoding", characterEncoding);
+        characterEncoding.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
     }
 
