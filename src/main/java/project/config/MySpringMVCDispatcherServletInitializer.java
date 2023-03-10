@@ -22,17 +22,5 @@ public class MySpringMVCDispatcherServletInitializer extends AbstractAnnotationC
     }
     }
 
-    public void onStartup (ServletContext aServletContext) throws ServletContext {
-    registerCharacterEncodingFilter(aServletContext);
-    }
 
-    private void registerCharacterEncodingFilter(ServletContext aContext){
-        EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD);
-
-        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-        characterEncodingFilter.setEncoding("UTF-8");
-        characterEncodingFilter.setForceEncoding(true);
-        FilterRegistration.Dynamic characterEncoding  = aContext.addFilter("characterEncoding", characterEncoding);
-        characterEncoding.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
-    }
 
