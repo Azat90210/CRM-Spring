@@ -20,7 +20,7 @@ public class NewsController {
     }
 
 
-    @GetMapping("news-controller")
+    @GetMapping()
     private String index(Model model) {
         model.addAttribute("news", newsDAO.index());
         return "news/index";

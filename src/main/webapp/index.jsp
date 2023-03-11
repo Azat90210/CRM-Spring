@@ -5,6 +5,6 @@
 <br>
 <a href="/contacts"> contacts</a>
 <br>
-<a href="/news/news-controller"> news</a>
+<a href="/news/index"> news</a>
 </body>
 </html>

@@ -5,7 +5,9 @@ import java.util.Objects;
 public class Term {
 
     private int id;
+
     private String name;
+
     private int duration;
 
     public Term() {
