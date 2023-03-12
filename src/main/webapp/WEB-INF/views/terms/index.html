@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:each="term : ${terms}">
+    <a th:href="@{/terms/{id}(id=${term.getId()})}"
+       th:text="${term.getName() + ', ' + term.getDuration()}">user</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/terms/new">Create new term</a>
+
+</body>
+</html>
