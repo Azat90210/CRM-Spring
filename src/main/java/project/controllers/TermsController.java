@@ -15,7 +15,6 @@ public class TermsController {
 
     @Autowired
     public TermsController(TermDAO termDAO) {
-
         this.termDAO = termDAO;
     }
 
@@ -53,7 +52,7 @@ public class TermsController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") Term term, BindingResult bindingResult,
+    public String update(@ModelAttribute("term") Term term, BindingResult bindingResult,
                          @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
             return "terms/edit";
