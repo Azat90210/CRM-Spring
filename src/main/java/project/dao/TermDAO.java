@@ -31,7 +31,7 @@ public class TermDAO {
     }
 
     public void update(int id, Term updatedTerm) {
-        jdbcTemplate.update("UPDATE Person SET name=?, duration=? WHERE id=?", updatedTerm.getName(),
+        jdbcTemplate.update("UPDATE term SET name=?, duration=? WHERE id=?", updatedTerm.getName(),
                 updatedTerm.getDuration(), id);
     }
 
