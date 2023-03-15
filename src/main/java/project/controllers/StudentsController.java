@@ -1,5 +1,6 @@
 package project.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +38,7 @@ public class StudentsController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("student") Student student,
+    public String create(@ModelAttribute("student") @Valid Student student,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "students/new";
@@ -53,7 +54,7 @@ public class StudentsController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("student") Student student, BindingResult bindingResult,
+    public String update(@ModelAttribute("student") @Valid Student student, BindingResult bindingResult,
                          @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
             return "students/edit";

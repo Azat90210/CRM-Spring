@@ -9,7 +9,7 @@
 
 <p th:text="${student.getId()}">VALUE</p>
 
-<a th:href="@{/student/{id}/edit(id=${student.getId()})}">Edit</a>
+<a th:href="@{/students/{id}/edit(id=${student.getId()})}">Edit</a>
 
 <form th:method="DELETE" th:action="@{/students/{id}(id=${student.getId()})}">
     <input type="submit" value="Delete"/>

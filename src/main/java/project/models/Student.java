@@ -1,14 +1,34 @@
 package project.models;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class Student {
     private int id;
+
+    @NotEmpty(message = "Surname should not be empty")
+    @Size(min = 2, max = 30, message = "Surname should be between 2 and 30" )
     private String surname;
+
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30" )
     private String name;
+
+    @NotEmpty(message = "Group should not be empty")
+    @Min(value = 0)
     private String group;
     private byte status;
+
+    @NotEmpty(message = "Data should not be empty")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_enter;
 
     public Student() {
