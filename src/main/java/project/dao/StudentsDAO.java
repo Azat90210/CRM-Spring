@@ -27,13 +27,13 @@ public class StudentsDAO {
     }
 
     public void save(Student student) {
-        jdbcTemplate.update("INSERT INTO student VALUES(1, ?, ?, ?, ?, ?)", student.getName(), student.getSurname(),
-                student.getGroup(), student.getStatus(), student.getData_enter());
+        jdbcTemplate.update("INSERT INTO student(surname, name, `group`, data_enter) VALUES(?, ?, ?, ?)", student.getSurname(), student.getName(),
+                student.getGroup(), student.getData_enter());
     }
 
     public void update(int id, Student updatedStudent) {
-        jdbcTemplate.update("UPDATE student SET name=?, surname=?, group=?, status=?, data_enter=? WHERE id=?", updatedStudent.getName(),
-                updatedStudent.getSurname(), updatedStudent.getGroup(), updatedStudent.getStatus(), updatedStudent.getData_enter(), id);
+        jdbcTemplate.update("UPDATE student SET surname=?, name=?, `group`=?, data_enter=? WHERE id=?", updatedStudent.getSurname(),
+                updatedStudent.getName(), updatedStudent.getGroup(), updatedStudent.getData_enter(), id);
     }
 
     public void delete(int id) {

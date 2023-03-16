@@ -19,9 +19,11 @@
     <input type="text" th:field="*{group}" id="group"/>
     <div style="color:red" th:if="${#fields.hasErrors('group')}" th:errors="*{group}">Duration Error</div>
     <br/>
+    <br/>
     <label for="data_enter">Enter enter data: </label>
     <input type="text" th:field="*{data_enter}" id="data_enter"/>
     <div style="color:red" th:if="${#fields.hasErrors('data_enter')}" th:errors="*{data_enter}">Duration Error</div>
+    <br/>
     <br/>
     <input type="submit" value="Create!"/>
 

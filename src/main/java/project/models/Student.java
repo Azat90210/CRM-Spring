@@ -24,7 +24,7 @@ public class Student {
     @NotEmpty(message = "Group should not be empty")
     @Min(value = 0)
     private String group;
-    private byte status;
+
 
     @NotEmpty(message = "Data should not be empty")
     @Temporal(TemporalType.DATE)
@@ -34,12 +34,11 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, String surname, String name, String group, byte status, Date data_enter) {
+    public Student(int id, String surname, String name, String groupa, Date data_enter) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.group = group;
-        this.status = status;
         this.data_enter = data_enter;
     }
 
@@ -71,17 +70,10 @@ public class Student {
         return group;
     }
 
-    public void setGroup(String group) {
+    public void setGroup(String groupa) {
         this.group = group;
     }
 
-    public byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(byte status) {
-        this.status = status;
-    }
 
     public Date getData_enter() {
         return data_enter;
@@ -96,12 +88,12 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return id == student.id && status == student.status && Objects.equals(surname, student.surname) && Objects.equals(name, student.name) && Objects.equals(group, student.group) && Objects.equals(data_enter, student.data_enter);
+        return id == student.id && Objects.equals(surname, student.surname) && Objects.equals(name, student.name) && Objects.equals(group, student.group) && Objects.equals(data_enter, student.data_enter);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, surname, name, group, status, data_enter);
+        return Objects.hash(id, surname, name, group, data_enter);
     }
 
     @Override
@@ -111,7 +103,6 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", group='" + group + '\'' +
-                ", status=" + status +
                 ", data_enter=" + data_enter +
                 '}';
     }
