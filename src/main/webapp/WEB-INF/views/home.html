@@ -54,9 +54,9 @@
 <div class="content-box">
     <div class="inline-box">
         <h1 display="inline">
-            <div th:each="news : ${news}">
-                <a th:text="${news.getName}">news</a>
-                Some news
+            <div th:each="new : ${news}">
+                <a th:href="@{/news/{id}(id=${new.getId()})}"
+                   th:text="${new.getName()}">user</a>
             </div>
         </h1>
     </div>

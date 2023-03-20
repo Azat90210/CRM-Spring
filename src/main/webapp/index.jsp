@@ -5,6 +5,6 @@
 <br>
 <a href="/contacts"> contacts</a>
 <br>
-<a href="/news/index"> news</a>
+<a href="/new/index"> news</a>
 </body>
 </html>
